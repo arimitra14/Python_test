@@ -1,0 +1,44 @@
+
+
+import unittest
+from data_process import *
+
+class test_data_process(unittest.TestCase):
+
+    
+    def set_news_url_condition_test():
+        self.assertEqual(set_news_url_condition("www.google.com"), False)
+        self.assertEqual(set_news_url_condition("https://www.indiatoday.in/news.html"), True)
+
+    
+    def set_news_url_condition_test_value():
+        self.assertRaises(ValueError, set_news_url_condition, "hello")
+        self.assertRaises(TypeError, set_news_url_condition, 2)
+        self.assertRaises(TypeError, set_news_url_condition, 2.5)
+        self.assertRaises(TypeError, set_news_url_condition, -2)
+        
+        
+    def extract_news_link_test():
+        self.assertEqual(extract_news_link("www.google.com"), False)
+        self.assertEqual(extract_news_link("https://www.indiatoday.in/news.html"), True)
+
+   
+    def extract_news_link_test_value():
+        self.assertRaises(ValueError, extract_news_link, "hello")
+        self.assertRaises(TypeError, extract_news_link, 2)
+        self.assertRaises(TypeError, extract_news_link, 2.5)
+        self.assertRaises(TypeError, extract_news_link, -2)
+        
+        
+    def construct_news_url_test():
+        self.assertEqual(construct_news_url_test("www.google.com"), False)
+        self.assertEqual(construct_news_url_test("https://economictimes.indiatimes.com"), True)
+   
+    
+    def construct_news_url_test_value():
+        self.assertRaises(ValueError, construct_news_url, "good")
+        self.assertRaises(TypeError, construct_news_url, 2)
+        self.assertRaises(TypeError, construct_news_url, 2.5)
+        self.assertRaises(TypeError, construct_news_url, -2)
+        
+        
